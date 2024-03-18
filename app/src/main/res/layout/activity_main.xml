@@ -48,5 +48,19 @@
         app:layout_constraintStart_toStartOf="@id/osmButton"
         app:layout_constraintTop_toBottomOf="@id/osmButton" />
 
+    <Button
+        android:id="@+id/userButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="179dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="73dp"
+        android:text="Set User"
+        app:layout_constraintBottom_toTopOf="@+id/mainButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
