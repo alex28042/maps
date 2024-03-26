@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.IOError
 import java.io.IOException
 
@@ -29,6 +30,35 @@ class SecondActivity : AppCompatActivity() {
             text.text = "Latitude: ${location.latitude}, \nLongitude: ${location.longitude}"
         }
 
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.selectedItemId = R.id.settingsMenu
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.homeMenu -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.mapMenu -> {
+                    if (location != null) {
+                        val intent = Intent(this, OpenStreetMapActivity::class.java)
+                        val bundle = Bundle()
+                        bundle.putParcelable("location", location)
+                        intent.putExtra("locationBundle", bundle)
+                        startActivity(intent)
+                    }else{
+                        Log.e(TAG, "Location not set yet.")
+                    }
+                    true
+                }
+                R.id.settingsMenu -> {
+                    val intent = Intent(this, SecondActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
         val buttonNext: Button = findViewById(R.id.secondNextButton)
         buttonNext.setOnClickListener {
             val intent = Intent(this, ThirdActivity::class.java)
