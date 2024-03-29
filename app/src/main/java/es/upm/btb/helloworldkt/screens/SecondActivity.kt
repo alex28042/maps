@@ -1,4 +1,4 @@
-package es.upm.btb.helloworldkt
+package es.upm.btb.helloworldkt.screens
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,7 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.io.IOError
+import es.upm.btb.helloworldkt.R
 import java.io.IOException
 
 class SecondActivity : AppCompatActivity() {
@@ -68,6 +68,9 @@ class SecondActivity : AppCompatActivity() {
         val buttonPrevious: Button = findViewById(R.id.secondPreviousButton)
         buttonPrevious.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            val bundle = Bundle()
+            bundle.putParcelable("location", location)
+            intent.putExtra("locationBundle", bundle)
             startActivity(intent)
         }
         val tvFileContents: TextView = findViewById(R.id.mapslist)

@@ -1,4 +1,4 @@
-package es.upm.btb.helloworldkt
+package es.upm.btb.helloworldkt.screens
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -17,7 +17,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import es.upm.btb.helloworldkt.R
+import es.upm.btb.helloworldkt.database.AppDatabase
+import es.upm.btb.helloworldkt.entities.LocationEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.File
 
 class MainActivity : AppCompatActivity(), LocationListener {
@@ -26,10 +33,12 @@ class MainActivity : AppCompatActivity(), LocationListener {
     var latestLocation: Location? = null
     private val locationPermissionCode = 2
 
+    lateinit var database: AppDatabase
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "cordinates").build()
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener { item ->
@@ -140,6 +149,18 @@ class MainActivity : AppCompatActivity(), LocationListener {
         textView.text = "Latitude: ${location.latitude}, Longitude: ${location.longitude}"
         Toast.makeText(this, "Latitude: ${location.latitude}, Longitude: ${location.longitude}", Toast.LENGTH_LONG).show()
         saveCoordinatesToFile(location.latitude, location.longitude)
+        var newLocation = LocationEntity(
+            latitude = location.latitude,
+            longitude = location.longitude,
+            timestamp = System.currentTimeMillis()
+        )
+        println(newLocation)
+        lifecycleScope.launch(Dispatchers.IO) {
+            database.locationDao().insertLocation(newLocation)
+            var list = database.locationDao().getAllLocations()
+            println("holaaa")
+            println(list)
+        }
     }
     private fun saveCoordinatesToFile(latitude: Double, longitude: Double) {
         val fileName = "gps_coordinates.csv"
