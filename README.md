@@ -55,4 +55,4 @@ List of MAD developers:
 - Alejandro Alonso García (alejandro.alonso.garcia@alumunos.upm.es)
 - Adrian García (adrian.garcial@alumunos.upm.es)
   
-Workload distribution between members: (62.5% Alejandro Alonso / 37.5% Adrian Garcia) . 
+Workload distribution between members: (66.6% Alejandro Alonso / 33.3% Adrian Garcia) . 
