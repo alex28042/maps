@@ -17,9 +17,15 @@ Maps with the routes
 
 ![image](https://github.com/alex28042/maps/assets/73026276/b7fb1acb-cd97-42e1-b3ff-9b9cd9e73b09)
 
+File csv with different locations where the app was opened
 
 ![image](https://github.com/alex28042/maps/assets/73026276/cb1697d0-71d9-42dd-a2de-25f816e8e4b0)
+
+Weather from 20 cities
+
 ![image](https://github.com/alex28042/maps/assets/73026276/c925d477-c749-4317-9b0f-77838f308ac4)
+
+list with the locations stored in room database
 
 
 ## DemoVideo
