@@ -8,8 +8,16 @@ Our app is useful for people who wants to learn kotlin mobile development, we ha
 
 ## Screenshots
 ![image](https://github.com/alex28042/maps/assets/73026276/656f3368-155f-45e5-975c-5981d0d60f47)
+
+Init screen or main activity
+
 ![image](https://github.com/alex28042/maps/assets/73026276/8fbf527d-fc0d-49df-b308-406f5aab91b3)
+
+Maps with the routes
+
 ![image](https://github.com/alex28042/maps/assets/73026276/b7fb1acb-cd97-42e1-b3ff-9b9cd9e73b09)
+
+
 ![image](https://github.com/alex28042/maps/assets/73026276/cb1697d0-71d9-42dd-a2de-25f816e8e4b0)
 ![image](https://github.com/alex28042/maps/assets/73026276/c925d477-c749-4317-9b0f-77838f308ac4)
 
