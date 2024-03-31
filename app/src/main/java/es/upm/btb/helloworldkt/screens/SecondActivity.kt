@@ -56,6 +56,11 @@ class SecondActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
+                R.id.weatherMenu -> {
+                    val intent = Intent(this, WeatherActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 else -> false
             }
         }

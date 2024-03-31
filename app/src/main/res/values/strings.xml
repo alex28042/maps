@@ -2,10 +2,12 @@
     <string name="app_name">HelloWorldKt</string>
     <string name="title_home">Home</string>
     <string name="title_map">Map</string>
+    <string name="title_weather">Weather</string>
     <string name="title_list">Collection</string>
     <string name="title_config">Settings</string>
     <string name="signed_in">Signed in!</string>
     <string name="signed_out">Signed out!</string>
     <string name="signed_cancelled">Signed in cancelled</string>
     <string name="default_web_client_id">72615785555-t64p02tcgnau6subbqont564u9gjusur.apps.googleusercontent.com</string>
+    <string name="title_activity_weather">WeatherActivity</string>
 </resources>

@@ -76,6 +76,18 @@ class MainActivity : AppCompatActivity(), LocationListener {
                     startActivity(intent)
                     true
                 }
+                R.id.weatherMenu -> {
+                    if (latestLocation != null) {
+                        val intent = Intent(this, WeatherActivity::class.java)
+                        val bundle = Bundle()
+                        bundle.putParcelable("location", latestLocation)
+                        intent.putExtra("locationBundle", bundle)
+                        startActivity(intent)
+                    }else{
+                        Log.e(TAG, "Location not set yet.")
+                    }
+                    true
+                }
                 else -> false
             }
         }
@@ -141,8 +153,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
             // whichever happens first
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
         }
-        launchSignInFlow()
-
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -213,69 +223,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
             .show()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        FirebaseApp.initializeApp(this);
-
-        if (requestCode == RC_SIGN_IN) {
-            val response = IdpResponse.fromResultIntent(data)
-            if (resultCode == Activity.RESULT_OK) {
-                // user login succeeded
-                val user = FirebaseAuth.getInstance().currentUser
-                Toast.makeText(this, R.string.signed_in, Toast.LENGTH_SHORT).show();
-                Log.i(TAG, "onActivityResult " + getString(R.string.signed_in));
-            } else {
-                // user login failed
-                Log.e(TAG, "Error starting auth session: ${response?.error?.errorCode}")
-                Toast.makeText(this, R.string.signed_cancelled, Toast.LENGTH_SHORT).show();
-                finish()
-            }
-        }
-    }
-    private fun launchSignInFlow() {
-        FirebaseApp.initializeApp(this);
-
-        val providers = arrayListOf(
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build()
-        )
-        startActivityForResult(
-            AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build(),
-            RC_SIGN_IN
-        )
-    }
-    private fun logout() {
-        FirebaseApp.initializeApp(this);
-
-        AuthUI.getInstance()
-            .signOut(this)
-            .addOnCompleteListener {
-                // Restart activity after finishing
-                val intent = Intent(this, MainActivity::class.java)
-                // Clean back stack so that user cannot retake activity after logout
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-            }
-    }
-    private fun updateUIWithUsername() {
-        FirebaseApp.initializeApp(this);
-
-        val user = FirebaseAuth.getInstance().currentUser
-        val userNameTextView: TextView = findViewById(R.id.userNameTextView)
-        user?.let {
-            val name = user.displayName ?: "No Name"
-            userNameTextView.text = "\uD83E\uDD35\u200D♂\uFE0F " + name
-        }
-    }
-    override fun onResume() {
-        super.onResume()
-        FirebaseApp.initializeApp(this);
-        updateUIWithUsername()
-    }
 
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
     override fun onProviderEnabled(provider: String) {}

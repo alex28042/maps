@@ -11,56 +11,55 @@
         android:id="@+id/mainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="98dp"
-        android:layout_marginBottom="52dp"
-        android:text="Adelante"
-        app:layout_constraintBottom_toTopOf="@+id/osmButton"
+        android:layout_marginTop="403dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="64dp"
+        android:text="Forward"
+        app:layout_constraintBottom_toTopOf="@+id/mainTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/osmButton"
-        android:layout_width="127dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="137dp"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="402dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="64dp"
         android:fontFamily="sans-serif-condensed"
         android:rotationX="-2"
         android:text="Maps"
         app:iconTint="#D61B1B"
         app:layout_constraintBottom_toTopOf="@+id/mainTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/mainButton"
-        app:layout_constraintTop_toBottomOf="@id/mainButton"
+        app:layout_constraintEnd_toStartOf="@+id/mainButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#E63A3A" />
 
     <TextView
         android:id="@+id/mainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="84dp"
         android:text="Hello World!"
-        app:layout_constraintStart_toStartOf="@id/osmButton"
-        app:layout_constraintTop_toBottomOf="@id/osmButton" />
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="515dp" />
 
     <Button
         android:id="@+id/userButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="153dp"
-        android:layout_marginTop="179dp"
+        android:layout_marginTop="46dp"
         android:layout_marginEnd="153dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="43dp"
         android:text="Set User"
-        app:layout_constraintBottom_toTopOf="@+id/mainButton"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/mainTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -73,14 +72,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav" />
-
-    <TextView
-        android:id="@+id/userNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="43dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
