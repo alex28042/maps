@@ -5,7 +5,8 @@
 - Releases: [https://github.com/alex28042/maps](https://upm365.sharepoint.com/:u:/r/sites/Mobileapp/SitePages/Tracking.aspx?csf=1&web=1&share=EYd1lYCdX3FPgABHBTrVJ1gB6k4T2Ad9mJu6xmHkZC4bKg&e=ps1DCf)
 ## Description
 Our app is useful for people who wants to learn kotlin mobile development, we have made a "google maps" and we take the weather from 20 different cities
-##Screenshots
+
+## Screenshots
 ![image](https://github.com/alex28042/maps/assets/73026276/656f3368-155f-45e5-975c-5981d0d60f47)
 ![image](https://github.com/alex28042/maps/assets/73026276/8fbf527d-fc0d-49df-b308-406f5aab91b3)
 ![image](https://github.com/alex28042/maps/assets/73026276/b7fb1acb-cd97-42e1-b3ff-9b9cd9e73b09)
